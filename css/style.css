@@ -1,0 +1,48 @@
+/* regole generali */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* regole container */
+#container{
+    width: 30%;
+    margin: 80px auto;
+}
+
+/* regole immagini */
+.item{
+    display: none;
+}
+
+.item > img{
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.active{
+    display: block;
+}
+
+/* regole bottoni */
+#pulsanti{
+    display: flex;
+    justify-content: space-around;
+}
+
+div > .forward{
+    font-size: 50px;
+}
+
+.forward:hover{
+    cursor: pointer;
+}
+
+.back{
+    font-size: 50px;
+}
+
+.back:hover{
+    cursor: pointer;
+}
