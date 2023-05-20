@@ -5,20 +5,31 @@
     box-sizing: border-box;
 }
 
-/* regole container */
-#container{
+/* regole container-generale */
+#general-container{
+    padding: 50px;
+    height: 100vh;
+    position: relative;
+}
+
+/* regole img-container */
+#img-container{
     width: 30%;
-    margin: 80px auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 /* regole immagini */
 .item{
     display: none;
+    
 }
 
 .item > img{
-    max-width: 100%;
-    object-fit: contain;
+    width: 1000px;
+    height: 500px;
+    object-fit: cover;
 }
 
 .active{
@@ -31,8 +42,10 @@
     justify-content: space-around;
 }
 
-div > .forward{
+.forward{
     font-size: 50px;
+    width: 4%;
+    margin: auto;
 }
 
 .forward:hover{
@@ -41,6 +54,8 @@ div > .forward{
 
 .back{
     font-size: 50px;
+    width: 4%;
+    margin: auto;
 }
 
 .back:hover{

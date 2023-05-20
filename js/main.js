@@ -1,5 +1,5 @@
 // variabili globali
-const generalContainer = document.getElementById("container");
+const generalContainer = document.getElementById("img-container");
 let square;
 
 // creare array con immagini
@@ -21,6 +21,9 @@ for (i = 0; i < listImg.length; i++){
     
 }
 
+// assegno al primo "div" contenente l'immagine la classe active
+const activeImg = document.querySelector("div > .item");
+activeImg.classList.add("active");
 
 // seleziono il pulsante per far scorrere le immagini
 let forward = document.querySelector('.forward');
@@ -38,7 +41,7 @@ forward.addEventListener('click',
         // rimuovo a tutte le immagini la classe active
         items[activeItem].classList.remove("active");
 
-        if (activeItem == listImg.length - 1) {
+        if (activeItem === listImg.length - 1) {
             activeItem = -1;
         }
 
@@ -65,7 +68,7 @@ back.addEventListener('click',
         // rimuovo a tutte le immagini la classe active
         items[activeItem].classList.remove("active");
 
-        if (activeItem == 0) {
+        if (activeItem === 0) {
             activeItem = listImg.length;
         }
 
