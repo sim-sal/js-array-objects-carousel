@@ -44,7 +44,83 @@ images.forEach(element => {
     
 });
 
+// assegno al primo "div" contenente l'immagine la classe active
+const activeImg = document.querySelector("div > .item");
+activeImg.classList.add("active");
 
+const activeCard = document.querySelector(".card-details");
+activeCard.classList.remove("hidden");
+
+// seleziono il pulsante per far scorrere le immagini
+let forward = document.querySelector('.forward');
+
+// gestisco l'evento sul click sul pulsante forward
+let activeItem = 0;
+
+forward.addEventListener('click',
+
+    function(){
+        // seleziono tutte le immagini tramite la classe item
+        let items = document.querySelectorAll(".item");
+        console.log(items);
+
+        // rimuovo a tutte le immagini la classe active
+        items[activeItem].classList.remove("active");
+
+        // aggiungo a tutte le card relative ai dettagli dell'immagine la classe hidden
+        let cards = document.querySelectorAll(".card-details");
+        cards[activeItem].classList.add("hidden");
+
+        if (activeItem === images.length - 1) {
+            activeItem = -1;
+        }
+
+        // incremento il valore di posizionamento
+        activeItem++;
+        
+        // aggiungo la classe per rendere l'immagine visibile
+        items[activeItem].classList.add("active");
+
+        // rimuovo la classe hidden per rendere la card visibile
+        cards[activeItem].classList.remove("hidden");
+        
+    }
+
+)
+
+// eseguo il procedimento inverso per il bottone back
+let back = document.querySelector(".back");
+
+back.addEventListener('click',
+
+    function(){
+        // seleziono tutte le immagini tramite la classe item
+        let items = document.querySelectorAll(".item");
+        console.log(items);
+
+        // rimuovo a tutte le immagini la classe active
+        items[activeItem].classList.remove("active");
+
+        // aggiungo a tutte le card relative ai dettagli dell'immagine la classe hidden
+        let cards = document.querySelectorAll(".card-details");
+        cards[activeItem].classList.add("hidden");
+
+        if (activeItem === 0) {
+            activeItem = images.length;
+        }
+
+        // decremento il valore di posizionamento
+        activeItem--;
+        
+        // aggiungo la classe per rendere l'immagine visibile
+        items[activeItem].classList.add("active");
+
+        // rimuovo la classe hidden per rendere la card visibile
+        cards[activeItem].classList.remove("hidden");
+        
+    }
+
+)
 
 
 
