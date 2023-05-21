@@ -7,7 +7,7 @@
 
 /* regole container-generale */
 #general-container{
-    padding: 50px;
+    padding: 100px;
     height: 100vh;
 }
 
@@ -23,7 +23,6 @@
 /* regole immagini */
 .item{
     display: none;
-    
 }
 
 .item > img{
@@ -66,3 +65,19 @@
     cursor: pointer;
     opacity: 1;
 }
+
+/* regole card dettagli img */
+.card-details{
+    width: 400px;
+    position: absolute;
+    top: 400px;
+    right: 280px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.hidden{
+    display: none;
+}
+

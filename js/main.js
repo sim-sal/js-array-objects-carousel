@@ -1,86 +1,50 @@
-// variabili globali
+// array di oggeti contenente le proprietà di ogni immagine da inserire nel DOM
+const images = [
+    {
+        image: 'img/01.webp',
+        title: "Marvel's Spiderman Miles Morale",
+        text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+    }, {
+        image: 'img/02.webp',
+        title: 'Ratchet & Clank: Rift Apart',
+        text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+    }, {
+        image: 'img/03.webp',
+        title: 'Fortnite',
+        text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+    }, {
+        image: 'img/04.webp',
+        title: 'Stray',
+        text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
+    }, {
+        image: 'img/05.webp',
+        title: "Marvel's Avengers",
+        text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+    }
+];
+
+// seleziono il container di riferimento presente nel DOM nel quale inseriremo tutte il immagini
 const generalContainer = document.getElementById("img-container");
-let square;
 
-// creare array con immagini
-let listImg = ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"];
-console.log(listImg);
+// cicliamo l'inserimento dei div contenente immagine, titolo e testo
+images.forEach(element => {
+    // creo il blocco composto da 2 div 
+    const blocchetto = 
+    `<div class="item">
+        <img src="${element.image}" alt="">
+    </div>
 
-// cicliamo l'inserimento delle immagini
-for (i = 0; i < listImg.length; i++){
+    <div class="card-details hidden">
+        <h3>${element.title}</h3>
+        <span>${element.text}</span>
+    </div>`;
 
-    // creo i div da inserire nel generalContainer
-    square = document.createElement("div");
-    generalContainer.append(square);
-
-    // inserisco le immagini nel rispettivo div 
-    square.innerHTML = `<img src="img/${listImg[i]}">`;
+    // li inserisco nel container
+    generalContainer.innerHTML += blocchetto;
     
-    // aggiunta classe stile css
-    square.classList.add("item");
-    
-}
+});
 
-// assegno al primo "div" contenente l'immagine la classe active
-const activeImg = document.querySelector("div > .item");
-activeImg.classList.add("active");
 
-// seleziono il pulsante per far scorrere le immagini
-let forward = document.querySelector('.forward');
-
-// gestisco l'evento sul click sul pulsante forward
-let activeItem = 0;
-
-forward.addEventListener('click',
-
-    function(){
-        // seleziono tutte le immagini tramite la classe item
-        let items = document.querySelectorAll(".item");
-        console.log(items);
-
-        // rimuovo a tutte le immagini la classe active
-        items[activeItem].classList.remove("active");
-
-        if (activeItem === listImg.length - 1) {
-            activeItem = -1;
-        }
-
-        // incremento il valore di posizionamento
-        activeItem++;
-        
-        // aggiungo la classe per rendere l'immagine visibile
-        items[activeItem].classList.add("active");
-        
-    }
-
-)
-
-// eseguo il procedimento inverso per il bottone back
-let back = document.querySelector(".back");
-
-back.addEventListener('click',
-
-    function(){
-        // seleziono tutte le immagini tramite la classe item
-        let items = document.querySelectorAll(".item");
-        console.log(items);
-
-        // rimuovo a tutte le immagini la classe active
-        items[activeItem].classList.remove("active");
-
-        if (activeItem === 0) {
-            activeItem = listImg.length;
-        }
-
-        // decremento il valore di posizionamento
-        activeItem--;
-        
-        // aggiungo la classe per rendere l'immagine visibile
-        items[activeItem].classList.add("active");
-        
-    }
-
-)
 
 
 
